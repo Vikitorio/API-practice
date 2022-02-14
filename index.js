@@ -1,4 +1,5 @@
-
+const input = document.querySelector('.header__input')
+const closeButton =document.querySelector('.header__close')
 const url = 'https://api.themoviedb.org/3/movie/550?api_key=be054bcfb514d9dfca10a8344ab60a0a'
 let baseUrl = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=be054bcfb514d9dfca10a8344ab60a0a&page=1'
 let posterUrl='https://image.tmdb.org/t/p/w1280'
@@ -11,6 +12,35 @@ let filmArr=[];
   }
 
   */
+
+  window.addEventListener('load', ()=>{document.querySelector('.header__input').select()})
+  input.addEventListener('input',xAdd)
+  input.addEventListener('change',xAdd)
+  closeButton.addEventListener('click',cleanValue)
+
+
+  function cleanValue(){
+    document.querySelector('.header__input').value=''
+    xAdd()
+  }
+
+  function xAdd(){
+    console.log('start')
+    if(input.value!==''){
+      console.log('start')
+      document.querySelector('.header__close').classList.remove('hiden__close')
+    }
+    else {
+      document.querySelector('.header__close').classList.add('hiden__close')
+    }
+  }
+
+
+
+
+
+
+
 
 function clinFilms(){
   if(document.querySelectorAll('.film')){
